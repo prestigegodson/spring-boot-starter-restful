@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="auth_user-8/15/2018" author="prestigegodson">
+        <createTable tableName="auth_user">
+            <column name="id" type="bigserial" autoIncrement="true" >
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_user_id" />
+            </column>
+            <column name="email" type="varchar(100)">
+                <constraints nullable="false" unique="true" />
+            </column>
+            <column name="first_name" type="varchar(100)" />
+            <column name="last_name" type="varchar(100)" />
+            <column name="created_date" type="timestamp without time zone" />
+            <column name="updated_date" type="timestamp without time zone" />
+        </createTable>
+    </changeSet>
+
+    <changeSet id="auth_user-8/16/2018" author="prestigegodson">
+        <addColumn tableName="auth_user">
+            <column name="password" type="TEXT"></column>
+        </addColumn>
+    </changeSet>
+
+</databaseChangeLog>
